@@ -1,52 +1,550 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
 
-<!DOCTYPE html>
-<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Giants Order | 자이언츠오더</title>
-  <meta name="description"
-        content="주식회사 자이언츠오더 공식 홈페이지">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, "Apple SD Gothic Neo", sans-serif;
-      color: #202938;
-      background: #f8fafc;
-    }
-    header {
-      padding: 24px 8%;
-      background: white;
-      border-bottom: 1px solid #e5e7eb;
-      font-weight: bold;
-      font-size: 22px;
-    }
-    main {
-      max-width: 900px;
-      margin: 110px auto;
-      padding: 0 24px;
-      text-align: center;
-    }
-    h1 { font-size: clamp(32px, 5vw, 52px); }
-    p { color: #596579; line-height: 1.9; }
-    footer {
-      text-align: center;
-      padding: 48px 20px;
-      color: #8892a0;
-      font-size: 13px;
-    }
-  </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#fafafa">
+    <title>Giant sorder | 자이언츠오더</title>
+    <meta name="description" content="자이언츠오더는 더 나은 디지털 경험을 만드는 소프트웨어 기업입니다.">
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #fafafa;
+            --surface: #fff;
+            --ink: #111;
+            --muted: #666;
+            --line: #e5e5e5;
+            --soft: #f3f3f3;
+            --accent: #0070f3
+        }
+
+        html[data-theme=dark] {
+            color-scheme: dark;
+            --bg: #080808;
+            --surface: #111;
+            --ink: #f5f5f5;
+            --muted: #999;
+            --line: #282828;
+            --soft: #191919;
+            --accent: #68a9ff
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+            letter-spacing: -.035em
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        button {
+            font: inherit
+        }
+
+        .wrap {
+            max-width: 1120px;
+            margin: auto;
+            padding: 0 28px
+        }
+
+        .header {
+            height: 74px;
+            border-bottom: 1px solid var(--line);
+            background: var(--bg);
+            position: sticky;
+            top: 0;
+            z-index: 10
+        }
+
+        .header .wrap {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .brand {
+            font-size: 21px;
+            font-weight: 750;
+            letter-spacing: -.06em;
+            display: flex;
+            align-items: center;
+            gap: 11px
+        }
+
+        .mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 29px;
+            height: 29px;
+            background: var(--ink);
+            color: var(--bg);
+            font-size: 19px;
+            font-weight: 800;
+            border-radius: 7px
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            font-size: 13px;
+            color: var(--muted);
+            font-weight: 550
+        }
+
+        .nav a:hover {
+            color: var(--ink)
+        }
+
+        .theme {
+            background: var(--surface);
+            color: var(--ink);
+            border: 1px solid var(--line);
+            border-radius: 9px;
+            width: 37px;
+            height: 37px;
+            cursor: pointer
+        }
+
+        .hero {
+            text-align: center;
+            padding: 124px 0 95px
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            border: 1px solid var(--line);
+            border-radius: 30px;
+            padding: 8px 13px;
+            font-size: 12px;
+            color: var(--muted);
+            background: var(--surface);
+            letter-spacing: 0
+        }
+
+        .dot {
+            height: 7px;
+            width: 7px;
+            border-radius: 50%;
+            background: #19b67d
+        }
+
+        .hero h1 {
+            font-size: clamp(46px, 7.4vw, 91px);
+            line-height: 1.14;
+            letter-spacing: -.075em;
+            margin: 33px 0 25px;
+            font-weight: 740
+        }
+
+        .hero h1 span {
+            color: #929292
+        }
+
+        .hero p {
+            color: var(--muted);
+            font-size: clamp(16px, 2vw, 19px);
+            line-height: 1.9;
+            margin: 0 auto;
+            max-width: 620px;
+            word-break: keep-all
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 35px
+        }
+
+        .btn {
+            border: 1px solid var(--line);
+            border-radius: 9px;
+            padding: 13px 19px;
+            font-size: 13px;
+            font-weight: 650;
+            background: var(--surface)
+        }
+
+        .btn.primary {
+            background: var(--ink);
+            color: var(--bg);
+            border-color: var(--ink)
+        }
+
+        .btn:hover {
+            opacity: .78
+        }
+
+        .stage {
+            position: relative;
+            border: 1px solid var(--line);
+            border-radius: 15px;
+            overflow: hidden;
+            background: var(--surface);
+            min-height: 310px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .stage:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+            background-size: 46px 46px;
+            opacity: .42;
+            mask-image: linear-gradient(to bottom, black, transparent)
+        }
+
+        .stage-content {
+            position: relative;
+            text-align: center;
+            padding: 50px 20px
+        }
+
+        .glyph {
+            font-size: 74px;
+            font-weight: 800;
+            letter-spacing: -.11em;
+            line-height: 1
+        }
+
+        .stage-content p {
+            font-size: 13px;
+            color: var(--muted);
+            letter-spacing: .12em;
+            margin: 18px 0 0
+        }
+
+        .section {
+            padding: 105px 0;
+            border-bottom: 1px solid var(--line);
+            scroll-margin-top: 75px
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: end;
+            margin-bottom: 33px
+        }
+
+        .kicker {
+            font-size: 12px;
+            letter-spacing: .15em;
+            color: var(--muted);
+            font-weight: 700
+        }
+
+        .section h2 {
+            font-size: clamp(30px, 4vw, 46px);
+            line-height: 1.25;
+            letter-spacing: -.055em;
+            margin: 14px 0 0
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .product {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            overflow: hidden;
+            background: var(--surface)
+        }
+
+        .product-visual {
+            background: var(--soft);
+            min-height: 315px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid var(--line);
+            position: relative;
+            overflow: hidden
+        }
+
+        .product-visual:after {
+            content: "";
+            width: 190px;
+            height: 190px;
+            border: 1px solid var(--line);
+            border-radius: 42px;
+            transform: rotate(-14deg);
+            position: absolute
+        }
+
+        .product-visual b {
+            font-size: 45px;
+            letter-spacing: -.08em;
+            z-index: 1
+        }
+
+        .product-copy {
+            padding: 46px 38px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .status {
+            font-size: 11px;
+            border: 1px solid var(--line);
+            padding: 7px 10px;
+            border-radius: 20px;
+            align-self: start;
+            color: var(--muted)
+        }
+
+        .product h3 {
+            font-size: 27px;
+            letter-spacing: -.05em;
+            margin: 20px 0 10px
+        }
+
+        .product p {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.85;
+            margin: 0
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px
+        }
+
+        .about-grid p {
+            font-size: 17px;
+            line-height: 1.95;
+            margin: 0;
+            word-break: keep-all
+        }
+
+        .info {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 12px;
+            font-size: 13px;
+            margin-top: 15px
+        }
+
+        .info dt {
+            color: var(--muted)
+        }
+
+        .info dd {
+            margin: 0
+        }
+
+        .contact {
+            padding: 100px 0;
+            text-align: center
+        }
+
+        .contact h2 {
+            font-size: clamp(32px, 5vw, 55px);
+            margin: 15px 0
+        }
+
+        .contact p {
+            color: var(--muted);
+            line-height: 1.8
+        }
+
+        .footer {
+            border-top: 1px solid var(--line);
+            padding: 30px 0 44px;
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .footer .wrap {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap
+        }
+
+        .footer strong {
+            color: var(--ink)
+        }
+
+        @media(max-width:720px) {
+            .wrap {
+                padding: 0 20px
+            }
+
+            .header {
+                height: 65px
+            }
+
+            .nav {
+                gap: 13px;
+                font-size: 12px
+            }
+
+            .nav a:nth-child(2) {
+                display: none
+            }
+
+            .brand {
+                font-size: 17px
+            }
+
+            .hero {
+                padding: 95px 0 70px
+            }
+
+            .hero h1 {
+                font-size: clamp(43px, 10vw, 65px)
+            }
+
+            .stage {
+                min-height: 245px
+            }
+
+            .section {
+                padding: 72px 0
+            }
+
+            .product,
+            .about-grid {
+                grid-template-columns: 1fr
+            }
+
+            .product-visual {
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+                min-height: 230px
+            }
+
+            .product-copy {
+                padding: 32px 27px
+            }
+
+            .about-grid {
+                gap: 25px
+            }
+
+            .contact {
+                padding: 75px 0
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+        }
+    </style>
+    <script>(function () {try {var v = localStorage.getItem('giant-theme'); document.documentElement.dataset.theme = v || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')} catch (e) { } })();</script>
 </head>
+
 <body>
-  <header>GIANTS ORDER</header>
-  <main>
-    <h1>Creating Digital Experiences</h1>
-    <p>주식회사 자이언츠오더 공식 홈페이지입니다.</p>
-    <p>디지털 서비스와 모바일 애플리케이션을 개발합니다.</p>
-  </main>
-  <footer>
-    © 2026 Giants Order Co., Ltd. All rights reserved.
-  </footer>
+    <header class="header">
+        <div class="wrap"><a href="#home" class="brand"><span class="mark">G</span> Giant sorder</a>
+            <nav class="nav" aria-label="주 메뉴"><a href="#products">제품 소개</a><a href="#about">회사 소개</a><a
+                    href="#contact">문의하기</a><button class="theme" id="theme" aria-label="라이트 다크 모드 전환"
+                    title="테마 전환">◐</button></nav>
+        </div>
+    </header>
+    <main id="home">
+        <div class="wrap">
+            <section class="hero">
+                <div class="eyebrow"><span class="dot"></span> Building what comes next</div>
+                <h1>더 나은 경험을,<br><span>더 단순하게.</span></h1>
+                <p>자이언츠오더는 기술과 아이디어를 연결해<br>일상에 자연스럽게 스며드는 디지털 서비스를 만듭니다.</p>
+                <div class="actions"><a class="btn primary" href="#products">제품 살펴보기 ↗</a><a class="btn"
+                        href="#about">회사 소개</a></div>
+            </section>
+            <div class="stage" aria-label="Giant sorder 브랜드 비주얼">
+                <div class="stage-content">
+                    <div class="glyph">G<span style="color:var(--muted)">.</span></div>
+                    <p>THINK · BUILD · IMPROVE</p>
+                </div>
+            </div>
+            <section id="products" class="section">
+                <div class="section-head">
+                    <div>
+                        <div class="kicker">01 / PRODUCTS</div>
+                        <h2>우리가 만드는 것</h2>
+                    </div><span class="muted" style="font-size:13px">Products in progress</span>
+                </div>
+                <div class="product">
+                    <div class="product-visual"><b>Coming<br>Soon<span style="color:var(--muted)">.</span></b></div>
+                    <div class="product-copy"><span class="status">● 제품 준비 중</span>
+                        <h3>새로운 경험을 준비하고 있습니다.</h3>
+                        <p>더 편리하고 의미 있는 서비스를 선보이기 위해 준비하고 있습니다. 출시되는 제품은 이곳에서 소개할 예정입니다.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="about" class="section">
+                <div class="kicker">02 / ABOUT US</div>
+                <h2 style="margin-bottom:34px">아이디어를 현실로 만드는 일.</h2>
+                <div class="about-grid">
+                    <p>자이언츠오더는 사용자의 경험을 중심에 두고 디지털 제품과 서비스를 기획하고 개발합니다. 복잡함은 줄이고, 꼭 필요한 가치를 남기는 것을 지향합니다.</p>
+                    <div>
+                        <dl class="info">
+                            <dt>회사명</dt>
+                            <dd>자이언츠오더 (Giant sorder)</dd>
+                        </dl>
+                        <dl class="info">
+                            <dt>사업자등록번호</dt>
+                            <dd>210-81-70058</dd>
+                        </dl>
+                        <dl class="info">
+                            <dt>대표자</dt>
+                            <dd>정보근</dd>
+                        </dl>
+                        <dl class="info">
+                            <dt>웹사이트</dt>
+                            <dd>giants-order.com</dd>
+                        </dl>
+                    </div>
+                </div>
+            </section>
+            <section id="contact" class="contact">
+                <div class="kicker">03 / CONTACT</div>
+                <h2>함께 이야기해 볼까요?</h2>
+                <p>비즈니스 및 제휴 문의는 아래 이메일로 연락해 주세요.</p>
+                <p><a class="btn primary" href="mailto:contact@giants-order.com">이메일 문의 ↗</a></p>
+                <p style="font-size:12px">contact@giants-order.com · 실제 메일 계정 확인 후 사용</p>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="wrap">
+            <div><strong>Giant sorder</strong><br>© <span id="year"></span> Giant sorder. All rights reserved.</div>
+            <div>서울특별시 중랑구 동일로131길 75, 2층 (묵동, 화양동)</div>
+        </div>
+    </footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear(); document.getElementById('theme').addEventListener('click', function () {var t = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'; document.documentElement.dataset.theme = t; try {localStorage.setItem('giant-theme', t)} catch (e) { } });</script>
 </body>
+
 </html>
-  
